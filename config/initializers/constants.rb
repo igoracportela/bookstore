@@ -1,0 +1,1 @@
+BOOKSTORE_TOKEN = ENV.fetch("BOOKSTORE_TOKEN") {}.freeze
