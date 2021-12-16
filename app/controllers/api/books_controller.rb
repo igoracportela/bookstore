@@ -1,7 +1,6 @@
 class Api::BooksController < ApplicationController
   before_action :load_books, only: %i[show update destroy edit]
-  # protect_from_forgery with: :null_session
-  before_action :validate_token!
+  protect_from_forgery with: :null_session
 
   def index
     @books = Book.order('created_at DESC').limit(20)
