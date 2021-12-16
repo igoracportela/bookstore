@@ -3,7 +3,8 @@ class Api::BooksController < ApplicationController
   protect_from_forgery with: :null_session
 
   def index
-    @books = Book.order('created_at DESC').limit(20)
+    book_params[:limit] = 20 if book_params[:limit].blank?
+    @books = Book.order('created_at DESC').limit(book_params[:limit])
 
     render json: @books
   end
@@ -28,10 +29,17 @@ class Api::BooksController < ApplicationController
   end
 
   def destroy
+    return delete_copies if book_params[:stock].present?
+
     @book.destroy!
     head :no_content
   rescue
     render json: @book.errors, status: :unprocessable_entity
+  end
+
+  def delete_copies
+    @book.stock -= book_params[:stock].to_i
+    save_book!
   end
 
   private
@@ -49,7 +57,7 @@ class Api::BooksController < ApplicationController
   end
 
   def book_params
-    params.permit(:title, :stock)
+    params.permit(:title, :stock, :limit)
   end
 
   def save_book!
