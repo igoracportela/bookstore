@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     get 'books/:id' => 'books#show'
     post 'books' => 'books#create'
     delete 'books/:id' => 'books#destroy'
-    #resource :books, format: :json
+    patch 'books/:id' => 'books#update'
   end
 end
