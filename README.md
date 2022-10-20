@@ -2,7 +2,7 @@
 
 ## About the project
 
-It's a challenge to create a API
+I'm Igor, I passed my life working on private projects, since 2011. So, I decided to create this API to serve a frontend project
 
 ## Tasks
 
