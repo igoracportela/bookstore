@@ -1,8 +1,15 @@
 # README
 
-## About the project
+This app uses:
 
-I'm Igor, I passed my life working on private projects, since 2011. So, I decided to create this API to serve a frontend project
+* Ruby version: 3.0.3
+* Rails version: 6.1.7
+* Database: sqlite
+* Tests: Rspec
+
+## About the BookStore
+
+I passed my life working on private projects, since 2011. So, I decided to create this API to serve one or more frontend project
 
 ## Tasks
 
