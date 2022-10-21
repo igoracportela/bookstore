@@ -4,7 +4,7 @@ RSpec.describe "Books", type: :request do
   let(:token) { nil }
 
   describe "GET/books" do
-    let(:url) { "/api/books" }
+    let(:url) { "/api/v1/books" }
     let!(:book) { create_list(:book, 20) }
 
     it "returns all books" do
@@ -19,12 +19,12 @@ RSpec.describe "Books", type: :request do
   end
 
   describe "POST/books" do
-    let(:url) { "/api/books" }
+    let(:url) { "/api/v1/books" }
     let(:params) { { title: "Test1", stock: 10 } }
 
     it 'return new book' do
       post url, params: params
-      expect(JSON.parse(response.body).size).to eq(5)
+      expect(JSON.parse(response.body).size).to eq(8)
     end
 
     it 'returns status code 200' do
@@ -34,7 +34,7 @@ RSpec.describe "Books", type: :request do
   end
 
   describe "PATCH/books/:id" do
-    let(:url) { "/api/books/#{book.id}" }
+    let(:url) { "/api/v1/books/#{book.id}" }
     let!(:book) { create(:book) }
     let(:new_title) { 'My new book' }
     let(:book_params) { { title: new_title } }
@@ -47,7 +47,7 @@ RSpec.describe "Books", type: :request do
   end
 
   describe "DELETE/books" do
-    let(:url) { "/api/books/#{book.id}" }
+    let(:url) { "/api/v1/books/#{book.id}" }
     let!(:book) { create(:book) }
 
     it 'removes book' do

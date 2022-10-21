@@ -1,6 +1,11 @@
 require "rails_helper"
 
 RSpec.describe Book do
+  before { create(:book) }
+
+  describe "associations" do
+    it { is_expected.to have_many(:reviews) }
+  end 
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:title) }
@@ -10,7 +15,7 @@ RSpec.describe Book do
 
   describe "database" do
     it { is_expected.to have_db_column(:title).of_type(:string).with_options(null: false) }
-    it { is_expected.to have_db_column(:stock).of_type(:string).with_options(null: false) }
+    it { is_expected.to have_db_column(:stock).of_type(:integer).with_options(null: false) }
     it { is_expected.to have_db_column(:created_at).of_type(:datetime).with_options(null: false) }
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime).with_options(null: false) }
     it { is_expected.to have_db_column(:slug).of_type(:string) }
