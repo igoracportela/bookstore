@@ -59,7 +59,7 @@ module Api
       end
 
       def book_params
-        params.permit(:title, :stock, :limit)
+        params.permit(:title, :stock, :cover_image_url, :slug, :average_score)
       end
 
       def save_book!
