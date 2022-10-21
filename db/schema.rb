@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_15_201645) do
+ActiveRecord::Schema.define(version: 2022_10_20_214659) do
 
   create_table "books", force: :cascade do |t|
-    t.string "title"
-    t.integer "stock"
+    t.string "title", null: false
+    t.integer "stock", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cover_image_url"
+    t.string "slug"
+    t.integer "average_score", default: 0
   end
 
 end
