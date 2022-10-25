@@ -4,4 +4,3 @@ FactoryBot.define do
     stock { FFaker::Number.number(digits: 2) }
   end
 end
-  

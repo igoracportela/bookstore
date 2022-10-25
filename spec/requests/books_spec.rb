@@ -1,30 +1,30 @@
 require 'rails_helper'
 
-RSpec.describe "Books", type: :request do
+RSpec.describe 'Books', type: :request do
   let(:token) { nil }
 
-  describe "GET/books" do
-    let(:url) { "/api/v1/books" }
+  describe 'GET/books' do
+    let(:url) { '/api/v1/books' }
     let!(:book) { create_list(:book, 20) }
 
-    it "returns all books" do
+    it 'returns all books' do
       get url
       expect(JSON.parse(response.body).size).to eq 20
     end
 
-    it "returns success status" do
+    it 'returns success status' do
       get url
       expect(response).to have_http_status(:ok)
     end
   end
 
-  describe "POST/books" do
-    let(:url) { "/api/v1/books" }
-    let(:params) { { title: "Test1", stock: 10 } }
+  describe 'POST/books' do
+    let(:url) { '/api/v1/books' }
+    let(:params) { { title: 'Test1', stock: 10 } }
 
     it 'return new book' do
       post url, params: params
-      expect(JSON.parse(response.body).size).to eq(8)
+      expect(JSON.parse(response.body).size).to eq(10)
     end
 
     it 'returns status code 200' do
@@ -33,7 +33,7 @@ RSpec.describe "Books", type: :request do
     end
   end
 
-  describe "PATCH/books/:id" do
+  describe 'PATCH/books/:id' do
     let(:url) { "/api/v1/books/#{book.id}" }
     let!(:book) { create(:book) }
     let(:new_title) { 'My new book' }
@@ -46,7 +46,7 @@ RSpec.describe "Books", type: :request do
     end
   end
 
-  describe "DELETE/books" do
+  describe 'DELETE/books' do
     let(:url) { "/api/v1/books/#{book.id}" }
     let!(:book) { create(:book) }
 
