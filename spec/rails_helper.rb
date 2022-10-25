@@ -1,20 +1,18 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-require "spec_helper"
+require 'spec_helper'
 
-ENV["RAILS_ENV"] ||= "test"
-SPEC_UPLOAD_DIRECTORY = "spec/support/uploads".freeze
+ENV['RAILS_ENV'] ||= 'test'
+SPEC_UPLOAD_DIRECTORY = 'spec/support/uploads'.freeze
 
-require File.expand_path("../config/environment", __dir__)
+require File.expand_path('../config/environment', __dir__)
 
 # Prevent database truncation if the environment is production
-if Rails.env.production?
-  abort("The Rails environment is running in production mode!")
-end
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 
-require "rspec/rails"
-require "shoulda/matchers"
+require 'rspec/rails'
+require 'shoulda/matchers'
 # Add additional requires below this line. Rails is not loaded until this point!
-Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -67,7 +65,7 @@ RSpec.configure do |config|
 
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
-  config.default_formatter = "doc" if config.files_to_run.one?
+  config.default_formatter = 'doc' if config.files_to_run.one?
 
   config.around(:each, :show_active_record_logs) do |example|
     show_active_record_logs do

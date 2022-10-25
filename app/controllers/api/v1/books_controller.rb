@@ -35,7 +35,7 @@ module Api
 
         @book.destroy!
         head :no_content
-      rescue
+      rescue StandardError
         render json: @book.errors, status: :unprocessable_entity
       end
 
@@ -51,7 +51,7 @@ module Api
       end
 
       def validate_token?
-        request.headers["Authorization"] == BOOKSTORE_TOKEN
+        request.headers['Authorization'] == BOOKSTORE_TOKEN
       end
 
       def load_books
@@ -59,13 +59,13 @@ module Api
       end
 
       def book_params
-        params.permit(:title, :stock, :cover_image_url, :slug, :average_score)
+        params.permit(:title, :stock, :cover_image_url, :slug, :average_score, :description, :sale_url)
       end
 
       def save_book!
         @book.save!
         render json: @book, status: :ok
-      rescue
+      rescue StandardError
         render json: @book.errors, status: :unprocessable_entity
       end
     end

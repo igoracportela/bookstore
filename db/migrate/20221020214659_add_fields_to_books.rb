@@ -5,6 +5,6 @@ class AddFieldsToBooks < ActiveRecord::Migration[6.1]
 
     add_column :books, :cover_image_url, :string
     add_column :books, :slug, :string
-    add_column :books, :average_score, :integer, default: 0 
+    add_column :books, :average_score, :integer, default: 0
   end
 end

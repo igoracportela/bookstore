@@ -1,1 +1,1 @@
-BOOKSTORE_TOKEN = ENV.fetch("BOOKSTORE_TOKEN") {}.freeze
+BOOKSTORE_TOKEN = ENV.fetch('BOOKSTORE_TOKEN', nil).freeze
