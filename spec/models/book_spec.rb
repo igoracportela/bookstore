@@ -1,21 +1,23 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe Book do
   before { create(:book) }
 
-  describe "associations" do
+  describe 'associations' do
     it { is_expected.to have_many(:reviews) }
-  end 
+  end
 
-  describe "validations" do
+  describe 'validations' do
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_uniqueness_of(:title) }
     it { is_expected.to validate_numericality_of(:stock) }
   end
 
-  describe "database" do
+  describe 'database' do
     it { is_expected.to have_db_column(:title).of_type(:string).with_options(null: false) }
     it { is_expected.to have_db_column(:stock).of_type(:integer).with_options(null: false) }
+    it { is_expected.to have_db_column(:description).of_type(:text) }
+    it { is_expected.to have_db_column(:sale_url).of_type(:string) }
     it { is_expected.to have_db_column(:created_at).of_type(:datetime).with_options(null: false) }
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime).with_options(null: false) }
     it { is_expected.to have_db_column(:slug).of_type(:string) }
