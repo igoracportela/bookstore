@@ -1,6 +1,6 @@
 # README
 
-This app uses:
+The RAILS-API use:
 
 * Ruby version: 3.0.3
 * Rails version: 6.1.7
