@@ -9,7 +9,7 @@ This app uses:
 
 ## About the BookStore
 
-I passed my life working on private projects, since 2011. So, I decided to create this API to serve one or more frontend project
+I passed my life working on private projects, since 2011. So, I decided to create this BookStore API to serve one or more frontend projects
 
 ## Tasks
 
@@ -30,5 +30,5 @@ I passed my life working on private projects, since 2011. So, I decided to creat
 - Book’s stock can’t be negative.
 - There are no more restrictions.
 
-## Unit tests
-... Unit test was created
+## Tests
+Models and Controllers tests created
